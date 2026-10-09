@@ -1,0 +1,22 @@
+# Dependencies and generated build state
+node_modules/
+dist/
+.astro/
+.cache/
+
+# Credentials and local environment
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Editor and system noise
+.DS_Store
+Thumbs.db
+*.log
+
+# Screenshots and temporary export artifacts
+/preview-*.png
+/first-look-*.png
+/AYINLA-ONE-FILE-HOMEPAGE.html

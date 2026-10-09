@@ -1,0 +1,8 @@
+---
+import Layout from '../layouts/Layout.astro';
+import {renderPage} from '../lib/site.mjs';
+const page=renderPage('/');
+---
+<Layout title={page.title} description={page.description} noindex={page.noindex}>
+  <div set:html={page.html} />
+</Layout>

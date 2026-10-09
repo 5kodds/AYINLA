@@ -1,0 +1,15 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { renderPage, sitePaths } from '../lib/site.mjs';
+export function getStaticPaths() {
+  return sitePaths.filter((route) => route !== '/').map((route) => ({
+    params: { slug: route.replace(/^\/+|\/+$/g, '') },
+    props: { route }
+  }));
+}
+const { route } = Astro.props;
+const page = renderPage(route);
+---
+<Layout title={page.title} description={page.description} noindex={page.noindex}>
+  <div set:html={page.html} />
+</Layout>

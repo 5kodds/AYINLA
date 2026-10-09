@@ -1,0 +1,60 @@
+name: AYINLA quality checks
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    name: Check and build website
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check out website
+        uses: actions/checkout@v4
+
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      # A lockfile could not be generated in the restricted authoring environment.
+      # Once npm install works, commit package-lock.json and switch to npm ci.
+      - name: Install dependencies
+        run: npm install --no-audit --no-fund
+
+      - name: Verify JavaScript syntax
+        run: |
+          node --check src/lib/site.mjs
+          node --check public/assets/site.js
+          node --check scripts/export-static.mjs
+          node --check scripts/validate.mjs
+          node --check scripts/check-dist.mjs
+
+      - name: Generate independent preview
+        run: npm run export:offline
+
+      - name: Validate site integrity
+        run: npm run lint
+
+      - name: Type check Astro
+        run: npm run check
+
+      - name: Astro production build
+        run: npm run build
+
+      - name: Validate generated production pages
+        run: npm run test:routes
+
+      - name: Upload built site for review
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ayinla-built-website
+          path: dist/
+          retention-days: 7
