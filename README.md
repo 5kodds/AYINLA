@@ -31,7 +31,7 @@ AYINLA is a premium contemporary bespoke menswear brand concept based in Ibadan,
 
 ## Technology and principles
 
-Astro 5 static site, JavaScript with Astro TypeScript diagnostics, custom CSS, GitHub Actions, and Cloudflare Pages hosting after verification. No permanent backend is needed for the portfolio. Pages CMS is proposed for editing the garments after a structured content migration. Startbuddi Forms or Tally is proposed for the business enquiry system. Paystack payment links can be used only after a customer approves a personalised quote and account eligibility is verified.
+Astro 5 static site, JavaScript with Astro TypeScript diagnostics, custom CSS, GitHub Actions, and Cloudflare Pages hosting after verification. No permanent backend is needed for the portfolio. Pages CMS is configured via `.pages.yml` to edit garments, collection copy, homepage introduction and photographs. Only the project owner can authorize the Pages CMS GitHub App. Startbuddi Forms or Tally is proposed for the business enquiry system. Paystack payment links can be used only after a customer approves a personalised quote and account eligibility is verified.
 
 The website is not a ready-to-wear retail checkout. Avoid introducing a shopping cart, saved payment cards, complex user accounts or tracking before there is demand and a clear privacy plan.
 
@@ -108,7 +108,7 @@ The initial architecture generates 21 public routes from shared data. All displa
 └── tsconfig.json
 ```
 
-**Content source of truth:** Edit `src/lib/site.mjs` and the associated shared styles, not generated offline-preview HTML. The renderer will be split into structured content entries in the planned CMS phase.
+**Content source of truth:** Editable content is in `src/content/garments/*.json`, `src/content/categories/*.json` and `src/content/site.json`, managed using Pages CMS. `src/lib/site.mjs` contains the rendering logic and fixed brand details. Do not hand-edit generated preview HTML. See [CMS setup](docs/PAGES-CMS.md).
 
 ## Deployment on Cloudflare Pages
 
@@ -151,7 +151,7 @@ Use **one canonical roadmap** in [docs/ROADMAP.md](docs/ROADMAP.md):
 | 1. GitHub handoff | Source and CI verified | Repository, developer docs and passing first CI run |
 | 2. Production hardening | Pending | Accessibility, SEO, visual QA and technical fixes |
 | 3. Business activation | Pending | Genuine portfolio, verified contacts, policies and CRM form |
-| 4. Content management | Pending | Structured garment data and Pages CMS |
+| 4. Content management | Configuration implemented | Pages CMS GitHub App authorization and owner editing test pending |
 | 5. Cloudflare launch | Pre-launch preview deployed | Cloudflare build succeeded; final business launch and browser checks pending |
 | 6. Growth | Backlog | Accounts, order tracking and ready-to-wear features |
 
@@ -160,3 +160,7 @@ Development guidance: [Architecture](docs/ARCHITECTURE.md), [Contributing](docs/
 ## Collaboration and ownership
 
 Use feature branches and reviewed pull requests. Run local checks, include mobile and desktop screenshots when visual elements change, and wait for CI. Do not introduce em dashes or en dashes in authored content. This public repository does not grant a general open-source license. Brand, code and image usage rights should be clarified with the owner before redistribution.
+
+## Pages CMS editor
+
+Visit https://app.pagescms.org/ and sign in with GitHub as **5kodds**. Install the Pages CMS GitHub App for the **5kodds/AYINLA** repository only, then open the repository on branch `main`. The editor will read `.pages.yml` and show Garment portfolio, Collection categories and Homepage editorial content. Changes commit to GitHub, which triggers Cloudflare Pages builds. New garments default to unpublished. All site content remains marked as a pre-launch concept, forms and payments are disabled. [Full onboarding and safety instructions](docs/PAGES-CMS.md).

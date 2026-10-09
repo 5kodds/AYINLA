@@ -1,0 +1,87 @@
+# AYINLA Pages CMS configuration. This operates on GitHub content files, not customer enquiries.
+media:
+  input: public/assets/garments
+  output: /assets/garments
+  extensions: [jpg, jpeg, png, webp]
+  rename: safe
+content:
+  - name: garments
+    label: Garment portfolio
+    type: collection
+    path: src/content/garments
+    format: json
+    filename:
+      template: "{fields.slug}.json"
+      field: false
+    operations:
+      rename: false
+      delete: false
+    view:
+      primary: title
+      fields: [title, category, published, order]
+      sort: [order, title]
+    fields:
+      - { name: title, label: Garment title, type: string, required: true }
+      - { name: slug, label: Stable URL slug, type: string, required: true, description: "Lowercase letters, digits and hyphens. Do not change a published slug." }
+      - name: category
+        label: Garment family
+        type: select
+        required: true
+        options:
+          values: [agbada, senator, kaftan]
+      - { name: published, label: Show on public demo, type: boolean, default: false, description: "Leave off until the design entry has been reviewed. Publishing here does not activate payments or real orders." }
+      - { name: order, label: Display order, type: number, required: true }
+      - { name: code, label: Lookbook reference, type: string, required: true }
+      - { name: blurb, label: Description, type: text, required: true }
+      - { name: style, label: Garment type, type: string, required: true }
+      - { name: character, label: Style character, type: string, required: true }
+      - { name: palette, label: Colour palette, type: string, required: true }
+      - { name: note, label: Editorial notes, type: text }
+      - name: photo
+        label: Actual AYINLA photograph
+        type: image
+        description: "Upload only a licensed original garment photo. Until supplied, the concept illustration is shown."
+        options:
+          extensions: [jpg, jpeg, png, webp]
+          rename: safe
+      - { name: photoAlt, label: Photo description for screen readers, type: text, description: "Required whenever a real photograph is uploaded." }
+      - { name: image, label: Fallback illustration key, type: string, required: true, readonly: true }
+      - { name: stock, label: Temporary stock reference ID, type: string, readonly: true }
+  - name: categories
+    label: Collection categories
+    type: collection
+    path: src/content/categories
+    format: json
+    operations:
+      create: false
+      rename: false
+      delete: false
+    view:
+      primary: name
+      fields: [name, slug, order]
+    fields:
+      - { name: name, label: Collection name, type: string, required: true }
+      - { name: slug, label: URL category, type: string, required: true, readonly: true }
+      - { name: order, label: Display order, type: number, required: true }
+      - { name: num, label: Collection number, type: string, readonly: true }
+      - { name: line, label: Collection headline, type: string, required: true }
+      - { name: intro, label: Description, type: text, required: true }
+      - name: photo
+        label: Real collection cover
+        type: image
+      - { name: photoAlt, label: Collection cover description, type: text }
+      - { name: image, label: Fallback illustration key, type: string, readonly: true }
+      - { name: stock, label: Stock reference ID, type: string, readonly: true }
+  - name: homepage
+    label: Homepage editorial content
+    type: file
+    path: src/content/site.json
+    format: json
+    operations:
+      delete: false
+    fields:
+      - { name: heroIntro, label: Hero introduction, type: text, required: true }
+      - name: heroPhoto
+        label: Approved hero photograph
+        type: image
+      - { name: heroPhotoAlt, label: Hero photo description, type: text }
