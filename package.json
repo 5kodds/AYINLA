@@ -10,7 +10,7 @@
     "preview": "astro preview",
     "check": "astro check",
     "export:offline": "node scripts/export-static.mjs",
-    "lint": "node scripts/validate.mjs",
+    "lint": "node scripts/validate-content.mjs && node scripts/validate.mjs",
     "test:routes": "node scripts/check-dist.mjs"
   },
   "dependencies": {

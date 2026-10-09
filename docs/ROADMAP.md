@@ -44,11 +44,11 @@ Status: Pending.
 - [ ] Confirm Paystack eligibility and actual international fulfillment process.
 
 ## Phase 4: Content management
-Status: Pending.
+Status: Editor configuration implemented, CMS owner sign-in and live edit test pending.
 
-- [ ] Refactor garment records from `src/lib/site.mjs` to structured content collection files.
-- [ ] Define schema and required image alt text.
-- [ ] Add Pages CMS config, GitHub editorial permissions and publishing review.
+- [x] Refactor garment and collection records from `src/lib/site.mjs` into independently editable JSON files.
+- [x] Add content-integrity checks for slugs, category, publishing state, uploaded image paths and alt text.
+- [x] Add `.pages.yml` Pages CMS configuration for garments, collections and homepage. GitHub App permissions and editor sign-in still require owner approval.
 - [ ] Confirm Ayinla can update a garment, upload an image and undo changes.
 
 ## Phase 5: Controlled Cloudflare Pages release
