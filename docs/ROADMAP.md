@@ -52,10 +52,12 @@ Status: Pending.
 - [ ] Confirm Ayinla can update a garment, upload an image and undo changes.
 
 ## Phase 5: Controlled Cloudflare Pages release
-Status: Pending.
+Status: Pre-launch Cloudflare demonstration deployed. Business release remains pending.
 
-- [x] Create Cloudflare Pages project `ayinla-bespoke` with the GitHub repo, `npm run build` and `dist` output. Production and preview deployments are intentionally disabled pending launch review.
-- [ ] Use preview deployments while business details are incomplete.
+- [x] Create Cloudflare Pages project `ayinla-bespoke` with the GitHub repo, `npm run build` and `dist` output.
+- [x] Enable automatic deployment and complete the first successful Cloudflare build. Initial deployment ID: `fb46acd5-c4a7-4ca6-ae87-7e9a768d7523`.
+- [x] Include visible pre-launch notices, `noindex` page metadata, `_headers`, and `robots.txt` safeguards.
+- [ ] Independently verify the public URL in a real browser, including the commission demo behavior, before sharing it with prospective clients.
 - [ ] Set `SITE_URL` and confirm custom domain and DNS with the owner.
 - [ ] Validate live production URL, error pages, analytics and final robots policy.
 - [ ] Remove pre-launch labels only after all approvals.
