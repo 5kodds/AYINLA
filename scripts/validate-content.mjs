@@ -5,14 +5,14 @@ import { categories, pieces, SITE } from '../src/lib/site.mjs';
 const root = path.resolve('src/content');
 const issues = [];
 const slugPattern = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
-const photoPattern = /^\\/assets\\/garments\\/[a-z0-9/_-]+\\.(?:jpg|jpeg|png|webp)$/i;
-const cleanText = (v) => typeof v === 'string' && !/[<>\\u2013\\u2014]/.test(v);
+const validPhotoPath = (p) => typeof p === 'string' && p.startsWith('/assets/garments/') && !p.includes('..') && /^[a-z0-9/_.-]+$/i.test(p.slice('/assets/garments/'.length)) && ['.jpg','.jpeg','.png','.webp'].some(ext => p.toLowerCase().endsWith(ext));
+const cleanText = (v) => typeof v === 'string' && !/[<>]/.test(v) && !v.includes(String.fromCharCode(8211)) && !v.includes(String.fromCharCode(8212));
 const required = (x, names, label) => {
   for (const name of names) if (!cleanText(x[name]) || !x[name].trim()) issues.push(`${label}: missing or unsafe ${name}`);
 };
 const validatePhoto = (x, label) => {
   if (!x.photo) return;
-  if (!photoPattern.test(x.photo)) issues.push(`${label}: photo path must be an uploaded asset`);
+  if (!validPhotoPath(x.photo)) issues.push(`${label}: photo path must be an uploaded asset`);
   else if (!fs.existsSync(path.join('public', x.photo.slice(1)))) issues.push(`${label}: uploaded photo missing from repository`);
   if (!cleanText(x.photoAlt) || !x.photoAlt.trim()) issues.push(`${label}: photoAlt is required for an uploaded photo`);
 };
