@@ -45,7 +45,13 @@ content:
           extensions: [jpg, jpeg, png, webp]
           rename: safe
       - { name: photoAlt, label: Photo description for screen readers, type: text, description: "Required whenever a real photograph is uploaded." }
-      - { name: image, label: Fallback illustration key, type: string, required: true, readonly: true }
+      - name: image
+        label: Temporary fallback illustration
+        type: select
+        required: true
+        description: Choose a visual placeholder until an approved garment photograph is uploaded.
+        options:
+          values: [agbada-emerald, agbada-ceremony, senator-indigo, senator-onyx, kaftan-sand, kaftan-night]
       - { name: stock, label: Temporary stock reference ID, type: string, readonly: true }
   - name: categories
     label: Collection categories
