@@ -37,7 +37,7 @@ export const link=(url)=>url;
 const arrow='<span aria-hidden="true">↗</span>';
 
 export function picture(image,alt,cls='',stock='',eager=false){
-  const uploaded = /^\\/assets\\/garments\\/[a-z0-9/_-]+\\.(?:jpg|jpeg|png|webp)$/i.test(image);
+  const uploaded = typeof image === 'string' && image.startsWith('/assets/garments/') && !image.includes('..') && /^[a-z0-9/_.-]+$/i.test(image.slice('/assets/garments/'.length)) && ['.jpg','.jpeg','.png','.webp'].some((ext) => image.toLowerCase().endsWith(ext));
   const src = uploaded ? image : `${imgBase}${image}.${image==='hero-reference'?'webp':'svg'}`;
   return `<div class="image-wrap ${cls}"><img src="${src}" ${stock && !uploaded?`data-stock="${stockUrl(stock)}"`:''} alt="${escapeHTML(alt)}" loading="${eager?'eager':'lazy'}" ${eager?'fetchpriority="high"':''} decoding="async"><span class="image-stamp">${uploaded ? 'Portfolio image pending brand approval' : 'Image reference / replace before launch'}</span></div>`;
 }
