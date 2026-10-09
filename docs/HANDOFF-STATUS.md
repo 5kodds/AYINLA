@@ -1,26 +1,28 @@
-# AYINLA GitHub handoff status
+# AYINLA engineering handoff status
 
 Date: 2026-10-09
 
-## Prepared
+## Completed
 
-- Source, assets, offline preview and documentation are present.
-- 21 independent static preview pages regenerated successfully.
-- JavaScript syntax checks and project integrity check passed.
-- GitHub Actions workflow for hosted install, Astro type checks and production build is included.
-- VS Code configuration and Cloudflare Pages setup guide are included.
-- Configuration stores no access tokens or business secrets.
-- Author-authored source and setup documentation were checked for em and en dashes.
+- Canonical GitHub repository: https://github.com/5kodds/AYINLA
+- 45 source files initially committed, including Astro routes, assets, browser scripts, docs and CI workflow.
+- Comprehensive README, one roadmap, architecture notes and developer handoff.
+- Initial CI run passed, including npm dependency installation, Astro typecheck, build and 21 generated-route checks.
+- CI run URL: https://github.com/5kodds/AYINLA/actions/runs/37910014376
+- Cloudflare Pages project `ayinla-bespoke` created and connected to the GitHub repository.
+- Cloudflare build command `npm run build`, output directory `dist`, production branch `main`.
+- Cloudflare production and preview deployments disabled to prevent publishing the unapproved commercial website.
+- The repository is currently public. It includes labelled demonstration content and local reference assets.
 
-## Not completed
+## Pending
 
-- No new GitHub repository exists for AYINLA yet. The connected GitHub integration does not expose repository creation.
-- The source has not been pushed to GitHub. An empty AYINLA repository is required first.
-- GitHub Actions has not run yet.
-- npm registry access in the authoring environment failed with EAI_AGAIN, so Astro typecheck and production build remain unverified.
-- Cloudflare Pages is not connected and there is no deployed production URL.
-- Startbuddi, Pages CMS, payments, business contacts and live enquiry handling require configuration and testing before publishing.
+- Generate and commit a deterministic `package-lock.json`, then update CI to `npm ci`.
+- Review branded visual and accessibility quality after deployment.
+- Provide original, permission-cleared AYINLA product photographs and designer biography.
+- Confirm approved domain, company details, contacts, pricing, production and delivery policies.
+- Activate and test Startbuddi or Tally form, Pages CMS editorial interface and Paystack workflows where required.
+- Enable a controlled Cloudflare deployment and verify the live URL only after owner approval.
 
-## Required owner action
+## Owner action
 
-Create a dedicated private repository at https://github.com/new and provide its URL so the existing GitHub connector can upload source. Alternatively, follow the commands in GITHUB-VSCODE-CLOUDFLARE.md to push using VS Code directly.
+Clone https://github.com/5kodds/AYINLA.git into VS Code and confirm the final launch domain and business operations. Do not place private tokens, personal measurements or customer details into GitHub. The initial repo was created as public; switch to private in GitHub Settings if the source should not be publicly readable.

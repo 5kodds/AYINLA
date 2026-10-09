@@ -14,10 +14,10 @@ Status: Visual direction approved for prototype.
 - Editorial layout and mobile-first experience.
 
 ## Phase 1: Source handoff and quality gates
-Status: In progress until CI passes.
+Status: Source upload and first CI passed. Lockfile and branch process remain open.
 
-- [ ] Source in the 5kodds/AYINLA repository.
-- [ ] First successful `npm install`, `npm run check`, `npm run build` and `npm run test:routes` on GitHub Actions.
+- [x] Source in the 5kodds/AYINLA repository.
+- [x] First successful `npm install`, `npm run check`, `npm run build` and `npm run test:routes` on GitHub Actions. Run: https://github.com/5kodds/AYINLA/actions/runs/37910014376
 - [ ] Commit a generated package-lock.json and use `npm ci` in CI.
 - [ ] Validate screenshots and routes on real browsers.
 - [ ] Protect production branch from unreviewed high-risk changes.
@@ -54,7 +54,7 @@ Status: Pending.
 ## Phase 5: Controlled Cloudflare Pages release
 Status: Pending.
 
-- [ ] Connect approved repo, build command and output path.
+- [x] Create Cloudflare Pages project `ayinla-bespoke` with the GitHub repo, `npm run build` and `dist` output. Production and preview deployments are intentionally disabled pending launch review.
 - [ ] Use preview deployments while business details are incomplete.
 - [ ] Set `SITE_URL` and confirm custom domain and DNS with the owner.
 - [ ] Validate live production URL, error pages, analytics and final robots policy.

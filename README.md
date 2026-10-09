@@ -4,7 +4,15 @@
 
 AYINLA is a premium contemporary bespoke menswear brand concept based in Ibadan, Nigeria. This repository is the canonical source for the AYINLA website, presenting agbada, senator suits and kaftans through an editorial portfolio and a consultation-led commission experience. The initial target markets are Nigerian ceremonial and wedding clients, returning professionals and, when fulfillment is verified, overseas clients.
 
-> **Pre-launch:** This website has demonstration garment records and reference imagery, not verified AYINLA finished commissions. The commission form is not connected to a customer-data provider, and payments are not enabled. Business contacts, legal terms, production capacity and international delivery must be verified before public commercial launch.
+> **Pre-launch:** The GitHub source and Astro build are verified, but Cloudflare production deployment is intentionally disabled. This website has demonstration garment records and reference imagery, not verified AYINLA finished commissions. The commission form is not connected to a customer-data provider, and payments are not enabled. Business contacts, legal terms, production capacity and international delivery must be verified before public commercial launch.
+
+## Verified engineering status (9 October 2026)
+
+- Repository: https://github.com/5kodds/AYINLA, public GitHub repository.
+- GitHub Actions: first run passed, including dependency installation, Astro checks, build and generated page checks. See [successful workflow](https://github.com/5kodds/AYINLA/actions/runs/37910014376).
+- Cloudflare Pages: project `ayinla-bespoke` is linked to the repository with `npm run build` and output `dist`.
+- Cloudflare deployment: intentionally disabled for production and preview, pending business and launch approvals. No deployed Pages site yet.
+- Forms, CRM, CMS, payments, real contacts and portfolio ownership: not configured or verified.
 
 ## Brand system
 
@@ -104,7 +112,7 @@ The initial architecture generates 21 public routes from shared data. All displa
 
 ## Deployment on Cloudflare Pages
 
-After a passing production CI build, connect this GitHub repository to Cloudflare Pages.
+Cloudflare Pages has been connected to this GitHub repository. Deployments remain disabled until the project owner approves release.
 
 | Setting | Value |
 | --- | --- |
@@ -140,7 +148,7 @@ Use **one canonical roadmap** in [docs/ROADMAP.md](docs/ROADMAP.md):
 | Phase | Status | Description |
 | --- | --- | --- |
 | 0. Identity | Approved for prototype | Brand direction, Omoluabi! and homepage |
-| 1. GitHub handoff | In progress | Source code, developer docs and passing CI |
+| 1. GitHub handoff | Source and CI verified | Repository, developer docs and passing first CI run |
 | 2. Production hardening | Pending | Accessibility, SEO, visual QA and technical fixes |
 | 3. Business activation | Pending | Genuine portfolio, verified contacts, policies and CRM form |
 | 4. Content management | Pending | Structured garment data and Pages CMS |
