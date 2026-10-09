@@ -4,14 +4,14 @@
 
 AYINLA is a premium contemporary bespoke menswear brand concept based in Ibadan, Nigeria. This repository is the canonical source for the AYINLA website, presenting agbada, senator suits and kaftans through an editorial portfolio and a consultation-led commission experience. The initial target markets are Nigerian ceremonial and wedding clients, returning professionals and, when fulfillment is verified, overseas clients.
 
-> **Pre-launch:** The GitHub source and Astro build are verified, but Cloudflare production deployment is intentionally disabled. This website has demonstration garment records and reference imagery, not verified AYINLA finished commissions. The commission form is not connected to a customer-data provider, and payments are not enabled. Business contacts, legal terms, production capacity and international delivery must be verified before public commercial launch.
+> **Pre-launch:** The GitHub source and Astro build are verified, and the Cloudflare Pages pre-launch deployment has completed successfully. This website has demonstration garment records and reference imagery, not verified AYINLA finished commissions. The commission form is not connected to a customer-data provider, and payments are not enabled. Business contacts, legal terms, production capacity and international delivery must be verified before public commercial launch.
 
 ## Verified engineering status (9 October 2026)
 
 - Repository: https://github.com/5kodds/AYINLA, public GitHub repository.
 - GitHub Actions: first run passed, including dependency installation, Astro checks, build and generated page checks. See [successful workflow](https://github.com/5kodds/AYINLA/actions/runs/37910014376).
 - Cloudflare Pages: project `ayinla-bespoke` is linked to the repository with `npm run build` and output `dist`.
-- Cloudflare deployment: intentionally disabled for production and preview, pending business and launch approvals. No deployed Pages site yet.
+- Cloudflare deployment: first production-branch build and asset deployment succeeded in Cloudflare, deployment ID `fb46acd5-c4a7-4ca6-ae87-7e9a768d7523`. The temporary public preview uses https://ayinla-bespoke.pages.dev and has pre-launch notices and noindex safeguards. Independent browser URL verification remains outstanding.
 - Forms, CRM, CMS, payments, real contacts and portfolio ownership: not configured or verified.
 
 ## Brand system
@@ -112,7 +112,7 @@ The initial architecture generates 21 public routes from shared data. All displa
 
 ## Deployment on Cloudflare Pages
 
-Cloudflare Pages has been connected to this GitHub repository. Deployments remain disabled until the project owner approves release.
+Cloudflare Pages is connected and automatic deployments from `main` are enabled for a pre-launch demonstration. The initial build and deployment passed, but the website is not authorised to process customer requests or payments.
 
 | Setting | Value |
 | --- | --- |
@@ -123,7 +123,7 @@ Cloudflare Pages has been connected to this GitHub repository. Deployments remai
 | Output directory | `dist` |
 | Node.js | 22 |
 
-Set `SITE_URL` to the verified production domain when available. Keep production deployments disabled or use an appropriately labelled test environment until Ayinla approves business details. Cloudflare Pages preview URLs may be public. The temporary `robots.txt` disallow rule does not provide authentication.
+Set `SITE_URL` to the verified production domain when available. Keep visible pre-launch labels and the temporary noindex settings in place until Ayinla approves business details. Public Cloudflare URLs are accessible to anyone with the link, and the robots directives are not an access-control mechanism. Cloudflare Pages preview URLs may be public. The temporary `robots.txt` disallow rule does not provide authentication.
 
 ## Enquiries, payments and data protection
 
@@ -152,7 +152,7 @@ Use **one canonical roadmap** in [docs/ROADMAP.md](docs/ROADMAP.md):
 | 2. Production hardening | Pending | Accessibility, SEO, visual QA and technical fixes |
 | 3. Business activation | Pending | Genuine portfolio, verified contacts, policies and CRM form |
 | 4. Content management | Pending | Structured garment data and Pages CMS |
-| 5. Cloudflare launch | Pending | Reviewed release, domain and production checks |
+| 5. Cloudflare launch | Pre-launch preview deployed | Cloudflare build succeeded; final business launch and browser checks pending |
 | 6. Growth | Backlog | Accounts, order tracking and ready-to-wear features |
 
 Development guidance: [Architecture](docs/ARCHITECTURE.md), [Contributing](docs/CONTRIBUTING.md), [Image replacement](docs/IMAGE-REPLACEMENT-GUIDE.md), [Setup and launch](docs/SETUP-AND-LAUNCH.md), [Testing](docs/TEST-REPORT.md).
