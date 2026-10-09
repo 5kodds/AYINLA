@@ -33,6 +33,7 @@ for (const f of files('garments')) {
   required(p,['title','slug','category','code','blurb','style','character','palette','image'],'garment '+f);
   if (!expectedCategories.includes(p.category)) issues.push(`Invalid category: ${f}`);
   if (typeof p.published !== 'boolean' || !Number.isFinite(p.order)) issues.push(`Publishing flag or order missing: ${f}`);
+  if (!['agbada-emerald','agbada-ceremony','senator-indigo','senator-onyx','kaftan-sand','kaftan-night'].includes(p.image)) issues.push(`Invalid illustration key: ${f}`);
   validatePhoto(p,'garment '+f);
 }
 required(SITE,['heroIntro'],'homepage');
